@@ -7,6 +7,21 @@
         <a-menu v-model:selectedKeys="selectedKeys" theme="light" mode="horizontal" :style="{ lineHeight: '64px' }">
             <a-menu-item v-for="nav in firstRoutes" :key="nav.meta?.id" @click="goTo(nav)">{{ nav.name }}</a-menu-item>
         </a-menu>
+        <ul class="right-side-nav">
+            <li class="search-add"></li>
+            <li class="nav-item vip-entry"></li>
+            <li class="nav-item notification"></li>
+            <li class="nav-item user">
+                <a-popover trigger="click" placement="bottomRight">
+                    <template #content>
+                        <div class="user-card"></div>
+                        <div class="user-list"></div>
+                        <div class="opt-btn"></div>
+                    </template>
+                    <img src="@/assets/images/user.svg" alt="" loading="lazy">
+                </a-popover>
+            </li>
+        </ul>
     </div>
 </template>
 <script lang="ts" setup>
@@ -31,7 +46,7 @@ const goTo = (nav: any) => {
     }
 }
 
-const goToDashboard = ()=>{
+const goToDashboard = () => {
     if (route.path !== '/dashboard') {
         router.push('/dashboard');
     }
@@ -42,10 +57,11 @@ watch(() => route.path, getMatchedRoutes)
 .menu {
     max-width: 1440px;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .logo {
-    float: left;
     margin-right: 12px;
     cursor: pointer;
 }
@@ -61,6 +77,18 @@ watch(() => route.path, getMatchedRoutes)
     line-height: 28px;
     vertical-align: middle;
     margin-left: 8px;
+}
+
+.right-side-nav {}
+
+.user {
+    cursor: pointer;
+}
+
+.user img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
 }
 </style>
 

@@ -2,4 +2,15 @@
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
     box-shadow: none;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+}
+
+.ant-layout-content {
+    margin: auto;
+    margin-top: 64px;
+    min-height: calc(100vh - 64px);
+    background-color: #fff;
+    min-width: 1440px;
 }
