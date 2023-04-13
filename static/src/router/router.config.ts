@@ -7,7 +7,7 @@ export const firstRoutes: Array<RouteRecordRaw> = [
         },
         name:'首页',
         path:'/dashboard',
-        component:() => import('@/views/dashboard.vue')
+        component:() => import('@/views/dashboard/dashboard.vue')
     },
     {
         meta:{

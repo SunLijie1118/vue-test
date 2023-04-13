@@ -11,6 +11,4 @@
     margin: auto;
     margin-top: 64px;
     min-height: calc(100vh - 64px);
-    background-color: #fff;
-    min-width: 1440px;
 }

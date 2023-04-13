@@ -1,25 +1,36 @@
 {
-  "name": "vue-test",
-  "version": "1.0.0",
-  "description": "vue的练习项目",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SunLijie1118/vue-test.git"
-  },
-  "keywords": [
-    "vue"
-  ],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SunLijie1118/vue-test/issues"
-  },
-  "homepage": "https://github.com/SunLijie1118/vue-test#readme",
-  "dependencies": {
-    "koa": "^2.14.1"
-  }
+    "name": "vue-test",
+    "version": "1.0.0",
+    "description": "vue的练习项目",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node .",
+        "server": "tsc && node src/index.js",
+        "hot": "tsc && nodemon src/index.ts",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SunLijie1118/vue-test.git"
+    },
+    "keywords": [
+        "vue"
+    ],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SunLijie1118/vue-test/issues"
+    },
+    "homepage": "https://github.com/SunLijie1118/vue-test#readme",
+    "dependencies": {
+        "koa": "^2.14.1",
+        "koa-router": "^12.0.0",
+        "log4js": "^6.9.1",
+        "nodemon": "^2.0.22",
+        "typescript": "^5.0.4"
+    },
+    "devDependencies": {
+        "@types/koa": "^2.13.6",
+        "@types/koa-router": "^7.4.4"
+    }
 }

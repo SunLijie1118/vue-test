@@ -11,17 +11,18 @@
             <li class="search-add">
                 <a-input-search v-model:value="searchValue" :placeholder="searchPlaceholder" @search="onSearch"
                     @focus="changeStatus('focus')" @blur="changeStatus('blur')" />
-                <a-dropdown-button @click="createClick" v-if="searchShow" @visibleChange="createChange($event)">
+                <a-dropdown-button :trigger="['click']" @click="createClick" v-if="searchShow"
+                    @visibleChange="createChange($event)">
                     创作者中心
                     <template #overlay>
                         <a-menu @click="createOptClick">
                             <a-menu-item v-for="opt in createOptions" :key="opt.key">
-                                {{ opt.title }}
+                                <span v-html="opt.icon"></span>{{ opt.title }}
                             </a-menu-item>
                         </a-menu>
                     </template>
-                    <template #icon><caret-down-outlined v-if="searchIcon" /><caret-up-outlined
-                            v-if="!searchIcon" /></template>
+                    <template #icon><caret-down-outlined v-if="!searchIcon" /><caret-up-outlined
+                            v-if="searchIcon" /></template>
                 </a-dropdown-button>
             </li>
             <li class="nav-item vip-entry"></li>
@@ -46,7 +47,7 @@
 import { firstRoutes } from '@/router/router.config';
 import { reactive, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
-import { CaretDownOutlined, CaretUpOutlined } from '@ant-design/icons-vue';
+import { CaretDownOutlined, CaretUpOutlined, EditOutlined } from '@ant-design/icons-vue';
 const router = useRouter()
 const route = useRoute()
 
@@ -54,7 +55,7 @@ const selectedKeys = ref<Array<Number>>([]);
 // 搜索部分
 const searchValue = ref<String>();
 const searchShow = ref<Boolean>(true);
-const searchIcon = ref<Boolean>(true);
+const searchIcon = ref<Boolean>(false);
 const searchWidth = reactive({
     width: '200px'
 });
@@ -62,7 +63,8 @@ const searchPlaceholder = ref<String>('探索稀土掘金');
 const createOptions = [
     {
         key: 1,
-        title: '写文章'
+        title: '写文章',
+        icon: '<edit-outlined />'
     },
     {
         key: 2,

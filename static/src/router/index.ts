@@ -13,13 +13,13 @@ const routes:Array<RouteRecordRaw> = [
             id: 404
         },
         path:'/404',
-        name:'not-found',
+        name:'404',
         component:()=>import('@/components/notFound.vue')
     },
     {
         path:'/:pathMatch(.*)*',
         redirect: {
-            name:'not-found'
+            name:'404'
         },
     }
 ];
